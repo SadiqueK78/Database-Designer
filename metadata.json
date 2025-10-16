@@ -1,0 +1,5 @@
+{
+  "name": "DBSmart Designer",
+  "description": "An AI-powered web application to generate SQL schemas from ER diagrams, visualize ER diagrams from SQL, and provide database optimization suggestions using the Gemini API.",
+  "requestFramePermissions": []
+}
