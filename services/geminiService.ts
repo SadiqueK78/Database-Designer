@@ -4,11 +4,13 @@ import { OptimizationSuggestion, ERFile } from '../types';
 const MODEL_NAME = 'gemini-2.5-flash';
 
 function getAIClient() {
-    if (!process.env.API_KEY) {
-        throw new Error("API_KEY environment variable not set");
+    const apiKey = import.meta.env.VITE_API_KEY;
+    if (!apiKey) {
+        throw new Error("VITE_API_KEY environment variable not set");
     }
-    return new GoogleGenAI({ apiKey: process.env.API_KEY });
+    return new GoogleGenAI({ apiKey });
 }
+
 
 export async function generateSqlFromEr(erFile: ERFile): Promise<string> {
     const ai = getAIClient();
